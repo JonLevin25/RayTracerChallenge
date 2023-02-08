@@ -11,6 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Drawing\Drawing.csproj" />
       <ProjectReference Include="..\Math\Math.csproj" />
     </ItemGroup>
 

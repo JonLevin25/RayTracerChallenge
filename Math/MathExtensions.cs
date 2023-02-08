@@ -13,6 +13,9 @@ namespace Math
         public static bool ApproxEqual(this float a, float b, float epsilon)
         {
             return MathF.Abs(a - b) < epsilon;
-        } 
+        }
+
+        public static int FloorToInt(this float f) => (int)MathF.Floor(f);
+        public static int CeilToInt(this float f) => (int)MathF.Ceiling(f);
     }
 }
