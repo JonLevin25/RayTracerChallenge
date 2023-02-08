@@ -64,7 +64,7 @@ namespace Drawing.Tests
                 for (var i = 0; i < lineLengths.Length; i++)
                 {
                     var lineLen = lineLengths[i];
-                    Assert.LessOrEqual(70, lineLen, $"PPM Line is too long on {canvasName} (lineIdx: {i}. Length: {lineLen})");
+                    Assert.LessOrEqual(lineLen, 70, $"PPM Line is too long on {canvasName} (lineIdx: {i}. Length: {lineLen})");
                 }
             }
             
@@ -149,6 +149,7 @@ namespace Drawing.Tests
                 .Split(Environment.NewLine);
             return lines
                 .Skip(MetadataLineCount)
+                .SkipLast(1) // file ends with newline
                 .SelectMany(line => line.Split(' '))
                 .ToArray();
         }

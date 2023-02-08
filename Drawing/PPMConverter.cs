@@ -50,15 +50,23 @@ namespace Drawing
             return sb.ToString();
         }
 
+        private static string SerializeLine(Canvas canvas, int maxColorValue, int y)
+        {
+            return Enumerable.Range(0, canvas.Width)
+                .Select(x => canvas.PixelAt(x, y))
+                .Select(pixel => ColorStr(pixel, maxColorValue))
+                .JoinStr(' ');
+        }
+
         private static string WrapStr(string str, int maxChars, char validReplacementChar = ' ')
         {
-            string GetSubstrInclusive(int startInclusive, int endInclusive)
+            string GetSubstr(int startInclusive, int endExclusive)
             {
-                var len = endInclusive - startInclusive + 1;
+                var len = endExclusive - startInclusive;
                 return str.Substring(startInclusive, len);
             }
             
-            var lastIdxReached = 0;
+            var lastSpaceIdx = -1;
             var sb = new StringBuilder(str.Length + str.Length / maxChars + 1);
             
             for (var i = maxChars; i < str.Length; i+= maxChars)
@@ -67,32 +75,24 @@ namespace Drawing
                 while (str[i] != validReplacementChar)
                 {
                     i--;
-                    if (lastIdxReached == i)
+                    if (lastSpaceIdx == i)
                     {
                         throw new ArgumentException(
                             $"Cannot Wrap string! could not find valid replacement char ('{validReplacementChar}') such that {maxChars}char wrapping is possible.");
                     }
                 }
                 
-                sb.AppendLine(GetSubstrInclusive(lastIdxReached, i));
+                sb.AppendLine(GetSubstr(lastSpaceIdx+1, i));
                 
-                lastIdxReached = i + 1;
+                lastSpaceIdx = i;
             }
 
-            if (lastIdxReached < str.Length - 1)
+            if (lastSpaceIdx < str.Length - 1)
             {
-                sb.AppendLine(GetSubstrInclusive(lastIdxReached, str.Length - 1));
+                sb.AppendLine(GetSubstr(lastSpaceIdx+1, str.Length));
             }
 
             return sb.ToString();
-        }
-
-        private static string SerializeLine(Canvas canvas, int maxColorValue, int y)
-        {
-            return Enumerable.Range(0, canvas.Width)
-                .Select(x => canvas.PixelAt(x, y))
-                .Select(pixel => ColorStr(pixel, maxColorValue))
-                .JoinStr(' ');
         }
 
         private static string ColorStr(Tuple pixel, int maxColorValue)
