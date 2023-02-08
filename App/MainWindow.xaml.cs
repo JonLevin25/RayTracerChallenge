@@ -27,7 +27,6 @@ namespace RayTracerChallenge
             InitializeComponent();
             _bitmapPixels = new BitmapPixelDrawer(this);
             _bitmapPixels.Fill(196,64,196);
-            
         }
     }
 }

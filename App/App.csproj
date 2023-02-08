@@ -6,6 +6,12 @@
         <UseWPF>true</UseWPF>
         <LangVersion>latest</LangVersion>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <RootNamespace>RayTracerChallenge</RootNamespace>
+        <PackageId>App</PackageId>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Math\Math.csproj" />
+    </ItemGroup>
 
 </Project>
