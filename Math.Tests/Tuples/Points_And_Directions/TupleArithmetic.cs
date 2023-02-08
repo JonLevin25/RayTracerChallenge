@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Math.Tests.Tuples
+namespace Math.Tests.Tuples.Points_And_Directions
 {
     [TestFixture]
     public class TupleArithmetic
@@ -67,7 +67,7 @@ namespace Math.Tests.Tuples
         }
         
         [Test]
-        public static void Test_Scalar_Mult_Scalar()
+        public static void Test_Scalar_Mult_Tuple()
         {
             var a = new Tuple(1, -2, 3, -4);
             var f = 3.5f;

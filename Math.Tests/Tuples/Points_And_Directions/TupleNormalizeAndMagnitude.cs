@@ -1,7 +1,6 @@
-using System;
 using NUnit.Framework;
 
-namespace Math.Tests.Tuples
+namespace Math.Tests.Tuples.Points_And_Directions
 {
     [TestFixture]
     public class TestTupleNormalizeAndMagnitude
