@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayTracerChallenge", "RayTracerChallenge.csproj", "{0C7B03F8-A338-42B5-A9A8-031CDE957014}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renderer", "Renderer\Renderer.csproj", "{22E6F885-12C5-42D4-A849-E6960C111474}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C7B03F8-A338-42B5-A9A8-031CDE957014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7B03F8-A338-42B5-A9A8-031CDE957014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7B03F8-A338-42B5-A9A8-031CDE957014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7B03F8-A338-42B5-A9A8-031CDE957014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E6F885-12C5-42D4-A849-E6960C111474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E6F885-12C5-42D4-A849-E6960C111474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E6F885-12C5-42D4-A849-E6960C111474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E6F885-12C5-42D4-A849-E6960C111474}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
