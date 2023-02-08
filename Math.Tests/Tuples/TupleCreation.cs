@@ -1,14 +1,10 @@
 using NUnit.Framework;
 
-namespace Math.Tests
+namespace Math.Tests.Tuples
 {
-    public class Tests
+    [TestFixture]
+    public class TupleCreation
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
         public void Test_Tuple_With_W_0_Is_Point()
         {
@@ -47,6 +43,6 @@ namespace Math.Tests
         {
             var p = Tuple.Vector(4, -4, 3);
             Assert.AreEqual(p, new Tuple(4f,-4f,3f,0f));
-        } 
+        }
     }
 }
