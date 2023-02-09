@@ -83,5 +83,12 @@ namespace Drawing
                 }
             }
         }
+
+        public bool IsInBounds(int x, int y)
+        {
+                if (x < 0 || x >= Width) return false;
+                if (y < 0 || y >= Height) return false;
+                return true;
+        }
     }
 }

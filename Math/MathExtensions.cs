@@ -17,5 +17,6 @@ namespace Math
 
         public static int FloorToInt(this float f) => (int)MathF.Floor(f);
         public static int CeilToInt(this float f) => (int)MathF.Ceiling(f);
+
     }
 }

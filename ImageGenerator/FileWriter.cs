@@ -13,7 +13,7 @@ namespace ImageGenerator
         private static string OutputDir => Path.Combine(RootDir, "Images");
         private static string ImageFilePath(string fileName) => Path.Combine(OutputDir, fileName);
 
-        public static void WriteImage(Canvas canvas, bool remux = true)
+        public static void WriteImage(Canvas canvas, bool writePPM = false, bool writePng = true)
         {
             var filename = $"{GetTimeFormatted()}.ppm";
             // Directory.CreateDirectory(OutputDir);
@@ -23,7 +23,8 @@ namespace ImageGenerator
             File.WriteAllText(path, ppm);
             Console.WriteLine($"File created or overwritten: {path}");
 
-            if (remux) RemuxImage(path);
+            if (writePng) RemuxImage(path);
+            if (!writePPM) File.Delete(path);
         }
 
         private static void RemuxImage(string path)
@@ -35,7 +36,8 @@ namespace ImageGenerator
             proc.Arguments = $"-i {origFileInfo} {remuxedInfo}";
 
             Console.WriteLine($"Remuxing image: {origFileInfo} -> {remuxedInfo}");
-            Process.Start(proc);
+            var runningProc = Process.Start(proc);
+            runningProc.WaitForExit(); // Must wait, otherwise WriteImage might delete the ppm before ffmpeg is done.
         }
 
         private static FileInfo GetFileWithDiffExtension(FileInfo info, string newExt)
