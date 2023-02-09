@@ -10,6 +10,8 @@ namespace Drawing
         public static Tuple Red => Tuple.Color(1f, 0f, 0f);
         public static Tuple Green => Tuple.Color(0f, 1f, 0f);
         public static Tuple Blue => Tuple.Color(0f, 0f, 1f);
+
+        public static Tuple Orange => Tuple.Color(1f, 0.5f, 0f);
         
         public static Tuple Yellow => Tuple.Color(1f, 1f, 0f);
         public static Tuple Cyan => Tuple.Color(0f, 1f, 1f);

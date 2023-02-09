@@ -12,9 +12,8 @@ namespace ImageGenerator
     {
         static void Main(string[] args)
         {
-            var canvas = new Canvas(600, 400);
             // SimpleRedImage(canvas);
-            Simulation1.RunProjectileSimulation(canvas, Colors.Green, 10);
+            Simulation1.RunProjectileSimulation();
         }
 
         private static void SimpleRedImage(Canvas canvas)

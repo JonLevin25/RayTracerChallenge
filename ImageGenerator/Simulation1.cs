@@ -10,10 +10,14 @@ namespace ImageGenerator
 {
     public static class Simulation1
     {
-        public static void RunProjectileSimulation(Canvas canvas, Tuple color, int projectileSize)
+        public static void RunProjectileSimulation()
         {
-            var initPos = Tuple.Point(0, 0, 0);
-            var initVel = Tuple.Vector(1, 1, 0);
+            var canvas = new Canvas(900, 550);
+            var color = Colors.Orange;
+            var projectileSize = 2;
+            
+            var initPos = Tuple.Point(0, 1, 0);
+            var initVel = Tuple.Vector(1, 1, 0).Normalized * 11.25f;
             var projectile = new Projectile(initPos, initVel);
 
             var gravity = Tuple.Vector(0, -0.1f, 0);
